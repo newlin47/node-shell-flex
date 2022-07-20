@@ -1,16 +1,16 @@
 const fs = require('fs');
 
-function catWrite(str) {
-  fs.readFile(str, (err, data) => {
+function catWrite(file) {
+  fs.readFile(file, (err, data) => {
     if (err) {
       console.log(err);
     } else {
-      process.stdout.write(str.join('\n'));
+      let lines = data.toString();
+      process.stdout.write(lines);
       process.stdout.write('\nprompt > ');
     }
   });
 }
-
 module.exports = {
   catWrite,
 };

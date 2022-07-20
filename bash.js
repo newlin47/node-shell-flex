@@ -7,14 +7,17 @@ process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
-  if (cmd === 'pwd') {
+  let cmdArr = cmd.split(' ');
+  let firCmd = cmdArr[0];
+  let file = cmdArr[1];
+  if (firCmd === 'pwd') {
     pwdFunc.pwdFinder();
   }
-  if (cmd === 'ls') {
+  if (firCmd === 'ls') {
     lsFile.fileFind();
   }
-  if (cmd === 'cat') {
-    catFile.catWrite();
+  if (firCmd === 'cat') {
+    catFile.catWrite(file);
   }
   process.stdout.write('\nprompt > ');
 });
