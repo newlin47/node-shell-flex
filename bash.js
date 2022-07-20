@@ -7,9 +7,7 @@ process.stdout.write('prompt > ');
 
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
-  let cmdArr = cmd.split(' ');
-  let firCmd = cmdArr[0];
-  let file = cmdArr[1];
+  let [firCmd, file] = cmd.split(' ');
   if (firCmd === 'pwd') {
     pwdFunc.pwdFinder();
   }

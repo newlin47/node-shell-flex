@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function catWrite(file) {
-  fs.readFile(file, (err, data) => {
+  fs.readFile(file, 'utf-8', (err, data) => {
     if (err) {
       console.log(err);
     } else {
